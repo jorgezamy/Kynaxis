@@ -1,0 +1,6 @@
+@Kynaxis_HostAddress = http://localhost:5145
+
+GET {{Kynaxis_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
