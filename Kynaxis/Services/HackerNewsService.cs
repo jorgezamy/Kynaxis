@@ -38,9 +38,7 @@ namespace Kynaxis.Services
         {
             var response = await _httpClient.GetStringAsync($"{_baseURL}item/{storyId}.json");
 
-            var story = JsonSerializer.Deserialize<Story>(response);
-
-            if (story == null) { throw new NullReferenceException($"Failed to deserialize the story data for StoryID"); }
+            var story = JsonSerializer.Deserialize<Story>(response) ?? throw new NullReferenceException($"Failed to deserialize the story data for StoryID");
 
             return story;
         }
