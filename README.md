@@ -42,3 +42,10 @@ The API returns an array of objects in the following format:
 ### Assumptions
   - The user must specify a valid integer n for retrieving stories.
   - If n is greater than the available stories, the API will return as many as it can.
+
+### Enhancements
+
+ - Implement rate limiting to avoid overwhelming the Hacker News API.
+ - Add logging to monitor API performance and errors.
+ - Improve error handling to provide more informative responses to clients.
+ - Implement caching strategies to reduce unnecessary calls to the Hacker News API.
