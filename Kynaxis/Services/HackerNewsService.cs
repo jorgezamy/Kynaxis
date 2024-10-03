@@ -1,4 +1,5 @@
-﻿using Kynaxis.Models;
+﻿using DotNetEnv;
+using Kynaxis.Models;
 using Microsoft.Extensions.Caching.Memory;
 using System.Text.Json;
 
@@ -8,12 +9,15 @@ namespace Kynaxis.Services
     {
         private readonly HttpClient _httpClient;
         private readonly IMemoryCache _cache;
-        private const string _baseURL = "https://hacker-news.firebaseio.com/v0/";
+        private readonly string _baseURL;
 
         public HackerNewsService(HttpClient httpClient, IMemoryCache cache)
         {
             _httpClient = httpClient;
             _cache = cache;
+            
+            Env.Load();
+            _baseURL = Env.GetString("BASE_URL", "https://hacker-news.firebaseio.com/v0/");
         }
 
         public async Task<List<int>> GetBestStoryIdsAsync()
