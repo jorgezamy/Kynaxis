@@ -31,11 +31,12 @@ namespace Kynaxis.Controllers
                     stories.Add(new Story
                     {
                         Title = story.Title,
-                        Uri = story.Uri,
-                        PostedBy = story.PostedBy,
-                        Time = DateTimeOffset.FromUnixTimeSeconds(long.Parse(story.Time)).ToString("yyyy-MM-ddTHH:mm:ss+00:00"),
+                        Url = story.Url,
+                        By = story.By,
+                        Time = story.Time,
                         Score = story.Score,
-                        CommentCount = story.CommentCount
+                        Descendants = story.Descendants,
+                        Kids = story.Kids
                     });
                 }
             });
