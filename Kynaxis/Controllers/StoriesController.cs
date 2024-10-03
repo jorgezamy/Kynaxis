@@ -18,6 +18,11 @@ namespace Kynaxis.Controllers
         [HttpGet("best")]
         public async Task<IActionResult> GetBestStories([FromQuery] int n = 10)
         {
+            if (n < 0)
+            {
+                return BadRequest("The value of 'n' needs to be a positive number");
+            }
+
             var bestStoryId = await _hackerNewsService.GetBestStoryIdsAsync();
 
             var stories = new List<Story>();
