@@ -6,7 +6,7 @@ This project implements a RESTful API using ASP.NET Core to retrieve the details
 ## API Endpoints
 
 ### Retrieve Best Stories
-- **GET** `/api/stories/best/{n}`
+- **GET** `/api/stories/best?n=10`
 - Retrieves the top n stories in descending order of score.
 
 #### Response Format
